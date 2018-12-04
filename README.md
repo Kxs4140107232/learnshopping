@@ -175,7 +175,7 @@ create table neuedu_order(
 ```
 
 ### 订单明细表
-
+```
 create table neuedu_order_item(
 `id`            int(11)     not null    auto_increment   comment '订单明细id，主键',
 `order_no`      bigint(20)  not null    comment '订单编号',
@@ -192,8 +192,9 @@ create table neuedu_order_item(
  key `order_no_index` (`order_no`) USING BTREE,
  key `order_no_user_id_index` (`order_no`,`user_id`)USING BTREE
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
-
+```
 ### 支付表
+```
  create table neuedu_payinfo(
  `id`       int(11)     not null    auto_increment  comment '主键',
  `user_id`  int(11)     not null    comment '订单编号',
@@ -205,10 +206,11 @@ create table neuedu_order_item(
  `update_time`    datetime default null comment '更新时间',
   primary key(`id`)
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
-
+```
 
 
 ### 收货地址表
+```
 create table neuedu_shopping(
  `id`               int(11)         not null    auto_increment,
  `user_id`          int(11)         not null,
@@ -224,5 +226,5 @@ create table neuedu_shopping(
  `update_time`      datetime         not null   comment '更新时间',
   primary key(`id`)
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
-    
+```    
 
