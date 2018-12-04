@@ -71,4 +71,76 @@
 ###### 查看支付状态
 #### 八、线上部署
 ##### 阿里云部署
+------20181204---------
+### 远程分支合并Dev分支
+```$xslt
+    git checkout dev
+    git pull origin dev
+    git checkout master
+    git merge dev
+    git push origin master
+```
+## 数据库设计
+###创建数据库
+```$xslt
+    create database learnshopping;
+     user learnshopping;
+```
+ 
+### 用户表
+```
+create table neuedu_user(
+`id`        int(11)     not null    auto_increment   comment '用户id',   
+`username`  varchar(50) not null    comment '用户名',
+`password`  varchar(50) not null    comment '密码',
+`email`     varchar(50) not null    comment '邮箱',
+`phone`     varchar(11) not null    comment '联系方法',
+`question`  varchar(100)    not null    comment '密保问题',
+`answer`    varchar(100)    not null    comment '答案',
+`role`      int(4)          not null    default 0   comment '用户角色',
+`create_time`   datetime    comment '创建时间',
+`update_time`   datetime    comment '修改时间',
+ primary key(`id`),
+ UNIQUE KEY `user_name_index`(`username`) USING BTREE
+)ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+```
+### 类别表
+### 商品表
+### 购物车表
+### 订单表
+### 订单明细表
+
+create table neuedu_order_item(
+`id`
+`order_no`
+`user_id`
+`product_id`
+`product_name`
+`product_image`
+`current_unit_price`
+`quantity`
+`total_price`
+`create_time`     datetime default null comment ''
+`update_time`    datetime default null comment ''
+ PRIMARY KEY(`id`),
+ 
+ 
+)ENGINE=InnoDB DEFAULT CHARSET=UTF8
+
+### 支付表
+ create table neuedu_payinfo(
+ `id`       int(11)     not null    auto_increment  comment ''
+ `user_id`
+ `order_no`
+ `pay_platform`     
+ `platform_status`  varchar(50) comment ''
+ `platform_number`
+ `create_time`
+ `update_time`
+ )ENGINE=InnoDB DEFAULT CHARSET=UTF8
+
+
+
+### 收货地址表
+    
 
