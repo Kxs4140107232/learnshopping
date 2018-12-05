@@ -227,4 +227,13 @@ create table neuedu_shopping(
   primary key(`id`)
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 ```    
+ ### 项目架构
+ ```
+ 视图层
+ 控制层controler
+ 业务逻辑层service
+        接口和实现类
+ Dao层
+ 
+```
 
