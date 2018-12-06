@@ -227,6 +227,13 @@ create table neuedu_shopping(
   primary key(`id`)
  )ENGINE=InnoDB DEFAULT CHARSET=UTF8;
 ```    
+###数据库小结
+索引(index):唯一索引unique，组合索引，单索引
+        位置：用户表，购物车表，订单表，订单明细表
+
+
+
+
  ### 项目架构
  ```
  视图层
@@ -236,4 +243,13 @@ create table neuedu_shopping(
  Dao层
  
 ```
+### mybatis-generator插件(mybatis逆向代理工程)
+####遇见错误：db.properties中url地址拼写错误
 
+
+
+###搭建ssm框架
+####遇到的错误(全都是xml文件配置问题)
+##### 1.spring.xml中最开始的地址未删减清楚
+##### 2.spring.xml中c3p0连接池中的数据未改
+##### 3.springmvc.xml里的连接器没删除
