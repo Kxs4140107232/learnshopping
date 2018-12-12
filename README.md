@@ -97,7 +97,7 @@ create table neuedu_user(
 `phone`     varchar(11) not null    comment '联系方法',
 `question`  varchar(100)    not null    comment '密保问题',
 `answer`    varchar(100)    not null    comment '答案',
-`role`      int(4)          not null    default 0   comment '用户角色',
+`role`      int(4)          not null    default 0   comment '用户角色 0：普通用户，1：管理员',
 `create_time`   datetime    comment '创建时间',
 `update_time`   datetime    comment '修改时间',
  primary key(`id`),
@@ -249,7 +249,73 @@ create table neuedu_shopping(
 
 
 ###搭建ssm框架
+    1.pom.xml
+    2.添加配置文件
+      spring配置文件
+      springMVC配置文件
+      mybatis配置文件
+      web.xml
+    3.使用框架
 ####遇到的错误(全都是xml文件配置问题)
 ##### 1.spring.xml中最开始的地址未删减清楚
 ##### 2.spring.xml中c3p0连接池中的数据未改
 ##### 3.springmvc.xml里的连接器没删除
+
+
+###接口
+####构造方法参数的顺序与后期调用其方法的参数的顺序必须相同
+
+
+###服务端接口返回前端的统一对象（封装内容）
+    class ServerResponse<T>{
+        int status;//接口返回状态码
+        T data;//接口返回的数据
+        String msg;//封装错误信息
+    }
+
+###类别模块
+####1.功能介绍
+        获取节点
+        增加节点
+        修改名称
+        获取分类
+        递归子节点id
+####2.学习目标
+        如何设计及封装无限层级的树状数据结构
+        递归算法的设计思想
+        如何处理复杂对象重排
+        重写hashcode和equals的注意事项
+####3.类别模块遇到的问题
+        1.封装的内容（SeverResponse）里少一个构造方法导致泛型<T>的data与string类型的status不可转换
+        2.控制层requestMapping里的地址重复，服务器报500
+          “Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'c”
+          
+          
+###商品模块
+####1功能：分为前台和后台
+#####前台：
+        产品搜索
+        动态排序列表
+        商品详情
+#####后端：
+        商品列表
+        商品搜索
+        图片上传
+        富文本上传
+        商品详情
+        商品上下架
+        增加商品
+        更新商品
+####2.学习目标
+        FTP服务的对接
+        SpringMVC文件上传
+        流读取Properties配置文件
+        抽象POJO、BO、VO对象之间的转换关系及解决思路
+        joda-time快速入门
+        静态块
+        Mbaties-PageHelper高效准确的分页及动态排序
+        Mbaties对List遍历的实现方法
+        Mbaties对where语句动态拼接
+        POJO/BO business object/VO view object
+        POJO/VO
+        

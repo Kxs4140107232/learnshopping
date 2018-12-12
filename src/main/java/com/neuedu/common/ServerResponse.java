@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 /**
- * 封装返回前端的高服用对象
+ * 封装返回前端的高复用对象
  * @param <T>
  */
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
@@ -16,24 +16,29 @@ public class ServerResponse<T> {
     //接口提示信息
     private String msg;
 
+    //构造方法
+    private ServerResponse() {
 
-    private ServerResponse(int status, T data, String msg) {
+    }
+
+    private ServerResponse(int status, String msg,T data) {
         this.status = status;
         this.data = data;
         this.msg = msg;
     }
 
-    private ServerResponse() {
-    }
-
     private ServerResponse(int status) {
-
         this.status = status;
     }
 
     private ServerResponse(int status, String msg) {
         this.status = status;
         this.msg = msg;
+    }
+    private ServerResponse(int status,T data) {
+        this.status = status;
+        this.data = data;
+
     }
 
     /**
@@ -45,23 +50,27 @@ public class ServerResponse<T> {
         return this.status==Const.SUCCESS_CODE;
     }
 
-
     /**
-     *
      * 成功
      * @return
      */
 
-    public static ServerResponse createServerResponseBySucess(){
+    public static ServerResponse createServerResponseBySuccess(){
 
         return new ServerResponse(Const.SUCCESS_CODE);
     }
-    public static ServerResponse createServerResponseBySucess(String msg){
+    public static ServerResponse createServerResponseBySuccess(String msg){
         return new ServerResponse(Const.SUCCESS_CODE,msg);
     }
-    public static <T> ServerResponse createServerResponseBySucess(String msg,T data){
+
+
+    public static <T> ServerResponse createServerResponseBySuccess(String msg,T data){
         return new ServerResponse(Const.SUCCESS_CODE,msg,data);
     }
+    public static <T> ServerResponse createServerResponseBySuccess(T data){
+        return new ServerResponse(Const.SUCCESS_CODE,data);
+    }
+
 
     /**
      * 失败
@@ -76,6 +85,7 @@ public class ServerResponse<T> {
     }
 
     public static ServerResponse createServerResponseByError(int status){
+
         return new ServerResponse(status);
     }
 
