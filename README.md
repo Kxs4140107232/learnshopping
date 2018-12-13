@@ -323,3 +323,4 @@ create table neuedu_shopping(
         （1）返回值类型一般为第二发单词，不但在被调用的方法里要设置，本类也要设置
           返回String型：public Sring
           返回ServerResponse型：public ServerResponse
+         (2)图片上传不了，未解决

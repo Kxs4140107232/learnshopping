@@ -2,6 +2,7 @@ package com.neuedu.service;
 
 import com.neuedu.common.ServerResponse;
 import com.neuedu.pojo.Product;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface IProductService {
@@ -22,7 +23,7 @@ public interface IProductService {
     ServerResponse set_sale_status(Integer productId,Integer status);
 
     /**
-     * 商品详情
+     * 后台-商品详情
      */
     ServerResponse detail(Integer productId);
 
@@ -43,5 +44,21 @@ public interface IProductService {
 
     ServerResponse upload(MultipartFile file,String path);
 
+    /**
+     * 前台-商品详情
+     */
 
-}
+    ServerResponse detail_portal(Integer productId);
+
+    /**
+     * 前台-商品搜索
+     * @param categoryId
+     * @param keyword
+     * @param pageNum
+     * @param pageSize
+     * @param orderBy
+     * @return
+     */
+
+    ServerResponse list_portal(Integer categoryId, String keyword, Integer pageNum, Integer pageSize, String orderBy);
+    }

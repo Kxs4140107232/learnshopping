@@ -18,7 +18,7 @@ public class UploadController {
     IProductService productService;
 
     @RequestMapping(value = "/upload",method = RequestMethod.GET)
-    public String upload(){
+    public String upload1(){
         return "upload"; //逻辑视图    前缀+逻辑视图+后缀 --》/WEB-INF/jsp/upload.jsp
     }
 
