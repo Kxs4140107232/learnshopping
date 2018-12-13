@@ -17,14 +17,16 @@ public class ServerResponse<T> {
     private String msg;
 
     //构造方法
-    private ServerResponse() {
-
-    }
+    private ServerResponse() {}
+    /*private ServerResponse(T data,String msg) {
+        this.data = data;
+        this.msg = msg;
+    }*/
 
     private ServerResponse(int status, String msg,T data) {
         this.status = status;
-        this.data = data;
         this.msg = msg;
+        this.data = data;
     }
 
     private ServerResponse(int status) {

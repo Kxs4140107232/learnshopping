@@ -1,6 +1,8 @@
 package com.neuedu.dao;
 
 import com.neuedu.pojo.Product;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface ProductMapper {
@@ -43,4 +45,26 @@ public interface ProductMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Product record);
+
+
+    /**
+     * 更新商品
+     */
+
+    int updateProductKeySelective(Product product);
+
+
+    /**
+     * 按照productId、productName查询
+     */
+
+    List<Product> findProductByProductIdAndProductName(@Param("productId") Integer productId,
+                                                       @Param("productName")String productName);
+
+
+
+
+
+
+
 }

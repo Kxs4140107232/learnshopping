@@ -319,3 +319,7 @@ create table neuedu_shopping(
         POJO/BO business object/VO view object
         POJO/VO
         
+####3.商品模块遇到问题
+        （1）返回值类型一般为第二发单词，不但在被调用的方法里要设置，本类也要设置
+          返回String型：public Sring
+          返回ServerResponse型：public ServerResponse

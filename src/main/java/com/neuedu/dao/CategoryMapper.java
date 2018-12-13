@@ -49,7 +49,11 @@ public interface CategoryMapper {
      */
     List<Category> findChildCategory(Integer categoryId);
 
-
+//    /**
+//     * 查询商品类别的父类
+//     */
+//
+//    Category findParentCategory(Integer categoryId);
 
 
 }
