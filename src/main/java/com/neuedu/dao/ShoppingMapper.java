@@ -1,6 +1,8 @@
 package com.neuedu.dao;
 
 import com.neuedu.pojo.Shopping;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface ShoppingMapper {
@@ -43,4 +45,15 @@ public interface ShoppingMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Shopping record);
+
+    int updateBySelectiveKey(Shopping shopping);
+
+    /**
+     * 删除地址
+     * @param userId
+     * @param shoppingId
+     * @return
+     */
+    int deleteByUserIdAndShoppingId(@Param("userId") Integer userId,
+                                    @Param("shoppingId")Integer shoppingId);
 }
