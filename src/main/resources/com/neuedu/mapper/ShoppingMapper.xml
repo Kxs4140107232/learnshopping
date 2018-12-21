@@ -30,7 +30,7 @@
 
   <delete id="deleteByUserIdAndShoppingId" parameterType="map">
     delete from neuedu_shopping
-    where id = #{shippingId,jdbcType=INTEGER} and user_id=#{userId}
+    where id = #{shoppingId,jdbcType=INTEGER} and user_id=#{userId}
   </delete>
 
 
@@ -50,7 +50,7 @@
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{receiverName,jdbcType=VARCHAR}, 
       #{receiverPhone,jdbcType=VARCHAR}, #{receiverMobile,jdbcType=VARCHAR}, #{receiverProvince,jdbcType=VARCHAR}, 
       #{receiverCity,jdbcType=VARCHAR}, #{receiverDistrict,jdbcType=VARCHAR}, #{receiverAddress,jdbcType=VARCHAR}, 
-      #{receiverZip,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      #{receiverZip,jdbcType=VARCHAR}, now(), now()
       )
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Shopping">

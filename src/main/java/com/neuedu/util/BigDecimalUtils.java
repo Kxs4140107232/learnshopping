@@ -13,7 +13,16 @@ public class BigDecimalUtils {
     public static BigDecimal add(double d1,double d2){
         BigDecimal bigDecimal=new BigDecimal(String.valueOf(d1));
         BigDecimal bigDecimal2=new BigDecimal(String.valueOf(d2));
-        return bigDecimal.add(bigDecimal);
+        return bigDecimal.add(bigDecimal2);
+    }
+
+    /**
+     * 加法运算2
+     */
+    public static BigDecimal add2(Integer d1,Integer d2){
+        BigDecimal bigDecimal=new BigDecimal(String.valueOf(d1));
+        BigDecimal bigDecimal2=new BigDecimal(String.valueOf(d2));
+        return bigDecimal.add(bigDecimal2);
     }
 
     /**
@@ -23,7 +32,7 @@ public class BigDecimalUtils {
     public static BigDecimal sub(double d1,double d2){
         BigDecimal bigDecimal=new BigDecimal(String.valueOf(d1));
         BigDecimal bigDecimal2=new BigDecimal(String.valueOf(d2));
-        return bigDecimal.subtract(bigDecimal);
+        return bigDecimal.subtract(bigDecimal2);
     }
 
     /**
@@ -33,7 +42,7 @@ public class BigDecimalUtils {
     public static BigDecimal mul(double d1,double d2){
         BigDecimal bigDecimal=new BigDecimal(String.valueOf(d1));
         BigDecimal bigDecimal2=new BigDecimal(String.valueOf(d2));
-        return bigDecimal.multiply(bigDecimal);
+        return bigDecimal.multiply(bigDecimal2);
     }
 
     /**
@@ -46,7 +55,7 @@ public class BigDecimalUtils {
     public static BigDecimal div(double d1,double d2){
         BigDecimal bigDecimal=new BigDecimal(String.valueOf(d1));
         BigDecimal bigDecimal2=new BigDecimal(String.valueOf(d2));
-        return bigDecimal.divide(bigDecimal,2,BigDecimal.ROUND_HALF_UP);
+        return bigDecimal.divide(bigDecimal2,2,BigDecimal.ROUND_HALF_UP);
     }
 
 }

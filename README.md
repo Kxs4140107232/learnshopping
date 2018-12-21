@@ -324,3 +324,29 @@ create table neuedu_shopping(
           返回String型：public Sring
           返回ServerResponse型：public ServerResponse
          (2)图片上传不了，未解决
+##遇到的问题
+###一、类别模块
+    1.添加的类别可以重名
+###二、用户模块
+    1.普通用户和管理员权限未区分（纵向越权）
+###三、商品模块
+    1.前台-搜索商品并分页显示有问题（pageNum、pageSize都为0）
+    2.后台商品上下架有问题
+        "com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'status = 1,
+                update_time = now(),
+                where id ' at line 1"
+    3.后台-查看商品详情成功
+    4.后台-查看商品列表成功
+    5.后台-产品搜索成功
+    6.前台-商品详情成功
+###四、购物车模块
+    1.添加商品接口无返回值（已解决）
+        前端输入问题，已解决http-->https
+    2.购物车添加商品是改不是加
+    3.其他接口成功
+    4.购物车各个用户之间未分离（横向越权）
+    5.数量超过库存未测试
+###五、订单模块
+    1.目前整体逻辑混乱，没有orderNo返回值
+###六、收货地址模块
+    1.添加的地址只有id

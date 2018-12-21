@@ -11,7 +11,6 @@ import com.neuedu.service.ICartService;
 import com.neuedu.util.BigDecimalUtils;
 import com.neuedu.vo.CartProductVO;
 import com.neuedu.vo.CartVO;
-import com.sun.jdi.DoubleValue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +18,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service
-public class CartSevericeImpl implements ICartService {
+public class CartServiceImpl implements ICartService {
 
     @Autowired
     CartMapper cartMapper;
@@ -59,15 +58,19 @@ public class CartSevericeImpl implements ICartService {
             cart1.setId(cart.getId());
             cart1.setProductId(productId);
             cart1.setUserId(userId);
+//            cart1.setQuantity(BigDecimalUtils.add2(cart.getQuantity(),Double.parseDouble(count)));
+//            cart1.setQuantity(BigDecimalUtils.add2(cart.getQuantity(),count.doubleValue()));
             cart1.setQuantity(count);
             cart1.setChecked(cart.getChecked());
             cartMapper.updateByPrimaryKey(cart1);
-
         }
         CartVO cartVO=getCartVOLimit(userId);
 
         return ServerResponse.createServerResponseBySuccess(cartVO);
+
+
     }
+
 
     @Override
     public ServerResponse list(Integer userId) {
@@ -191,6 +194,22 @@ public class CartSevericeImpl implements ICartService {
                     cartProductVO.setProductTotalPrice(BigDecimalUtils.mul(product.getPrice().doubleValue(),Double.valueOf(cartProductVO.getQuantity())));
 
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 if (cartProductVO.getProductChecked()==Const.CartCheckEnum.PRODUCT_CHECKED.getCode()){
 

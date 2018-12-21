@@ -27,11 +27,11 @@ public class ProductController {
      */
 
     @RequestMapping(value = "/list.do")
-    public ServerResponse list(@RequestParam(required = false)Integer categoryId,
-                               @RequestParam(required = false)String keyword,
-                               @RequestParam(required = false,defaultValue = "1")Integer pageNum,
-                               @RequestParam(required = false,defaultValue = "10")Integer pageSize,
-                               @RequestParam(required = false,defaultValue = "")String orderBy){
+    public ServerResponse list(@RequestParam(value = "categoryId",required = false)Integer categoryId,
+                               @RequestParam(value = "keyword",required = false)String keyword,
+                               @RequestParam(value = "pageNum",required = false,defaultValue = "1")Integer pageNum,
+                               @RequestParam(value = "pageSize",required = false,defaultValue = "10")Integer pageSize,
+                               @RequestParam(value = "orderBy",required = false,defaultValue = "")String orderBy){
 
         return productService.list_portal(categoryId,keyword,pageNum,pageSize,orderBy);
 

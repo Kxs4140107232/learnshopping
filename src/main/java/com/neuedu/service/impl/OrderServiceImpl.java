@@ -46,7 +46,7 @@ public class OrderServiceImpl implements IOrderService {
 
         //1.参数非空校验
         if (shoppingId == null) {
-            ServerResponse.createServerResponseByError("参数为空");
+            ServerResponse.createServerResponseByError("地址为空");
         }
         //2.根据userId查询购物车中已选中的商品-》List<Cart>
         List<Cart> cartList = cartMapper.findCartListByUserIdAndChecked(userId);
@@ -60,7 +60,8 @@ public class OrderServiceImpl implements IOrderService {
 
         //4.创建订单order并将其保存到数据库
         //计算订单价格
-        BigDecimal orderTotalPrice = new BigDecimal("0");
+        BigDecimal orderTotalPrice=new BigDecimal("0");
+
         List<OrderItem> orderItemList = (List<OrderItem>) serverResponse.getData();
         if (orderItemList == null || orderItemList.size() == 0) {
             return ServerResponse.createServerResponseByError("购物车为空");
@@ -192,6 +193,8 @@ public class OrderServiceImpl implements IOrderService {
 
     }
 
+
+
     private OrderVO assembleOrderVO(Order order,List<OrderItem> orderItemList,Integer shoppingId){
 
         OrderVO orderVO=new OrderVO();
@@ -206,7 +209,7 @@ public class OrderServiceImpl implements IOrderService {
         Shopping shopping=shoppingMapper.selectByPrimaryKey(shoppingId);
         if (shopping!=null){
             orderVO.setShoppingId(shoppingId);
-            ShoppingVO shoppingVO=assmbleShoppingVO(shopping);
+            ShoppingVO shoppingVO=assembleShoppingVO(shopping);
             orderVO.setShoppingVO(shoppingVO);
             orderVO.setReceiverName(shopping.getReceiverName());
         }
@@ -232,7 +235,7 @@ public class OrderServiceImpl implements IOrderService {
      *
      */
 
-    private ShoppingVO assmbleShoppingVO(Shopping shopping){
+    private ShoppingVO assembleShoppingVO(Shopping shopping){
         ShoppingVO shoppingVO=new ShoppingVO();
 
         if (shopping!=null){
@@ -249,10 +252,6 @@ public class OrderServiceImpl implements IOrderService {
         return  shoppingVO;
     }
 
-
-
-
-
     /**
      *
      */
@@ -267,14 +266,10 @@ public class OrderServiceImpl implements IOrderService {
             orderItemVO.setProductId(orderItem.getProductId());
             orderItemVO.setProductImage(orderItem.getProductImage());
             orderItemVO.setProductName(orderItem.getProductName());
-            orderItemVO.setToatlPrice(orderItem.getTotalPrice());
+            orderItemVO.setTotalPrice(orderItem.getTotalPrice());
         }
         return orderItemVO;
     }
-
-
-
-
 
 
     /**
@@ -286,7 +281,6 @@ public class OrderServiceImpl implements IOrderService {
             cartMapper.batchDelete(cartList);
         }
     }
-
 
 
     /**
@@ -303,22 +297,15 @@ public class OrderServiceImpl implements IOrderService {
                 productMapper.updateByPrimaryKey(product);
             }
         }
-
-
-
-
     }
 
 
-
-
     /**
-     * 计算订单价格
+     * 计算订单总价格
      */
 
     private BigDecimal getOrderPrice(List<OrderItem> orderItemList) {
         BigDecimal bigDecimal = new BigDecimal("0");
-
         for (OrderItem orderItem : orderItemList) {
             bigDecimal = BigDecimalUtils.add(bigDecimal.doubleValue(), orderItem.getTotalPrice().doubleValue());
         }
@@ -353,19 +340,16 @@ public class OrderServiceImpl implements IOrderService {
     }
 
     /**
-     * 生成订单编号
+     *生成订单编号
      */
     private Long generateOrderNO() {
         return System.currentTimeMillis() + new Random().nextInt(100);
     }
 
-
     private ServerResponse getCartOrderItem(Integer userId, List<Cart> cartList) {
-
         if (cartList == null || cartList.size() == 0) {
             return ServerResponse.createServerResponseByError("购物车为空");
         }
-
         List<OrderItem> orderItemList = Lists.newArrayList();
 
         for (Cart cart : cartList) {

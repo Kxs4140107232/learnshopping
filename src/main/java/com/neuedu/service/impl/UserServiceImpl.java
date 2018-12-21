@@ -131,13 +131,13 @@ public class UserServiceImpl implements IUserService {
             if (username_result > 0) {
                 return ServerResponse.createServerResponseByError(ResponseCode.EXISTS_USERNAME.getStatus(), ResponseCode.EXISTS_USERNAME.getMsg());
             }
-            return ServerResponse.createServerResponseBySuccess("成功");
+            return ServerResponse.createServerResponseBySuccess("用户名不存在");
         } else if (type.equals(Const.EMAIL)) {
             int email_result = userInfoMapper.checkEmail(str);
             if (email_result > 0) {
                 return ServerResponse.createServerResponseByError(ResponseCode.EXISTS_EMAIL.getStatus(), ResponseCode.EXISTS_EMAIL.getMsg());
             }
-            return ServerResponse.createServerResponseBySuccess("成功");
+            return ServerResponse.createServerResponseBySuccess("邮箱不存在");
         }
         //3.返回结果
 

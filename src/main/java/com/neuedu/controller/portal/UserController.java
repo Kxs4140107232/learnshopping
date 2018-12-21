@@ -19,6 +19,14 @@ public class UserController {
     @Autowired
     IUserService userService;
 
+    /**
+     * 登入
+     * @param session
+     * @param username
+     * @param password
+     * @return
+     */
+
     @RequestMapping(value = "login.do")
     public ServerResponse login(HttpSession session, String username, String password) {
         ServerResponse serverResponse = userService.login(username, password);
@@ -28,6 +36,11 @@ public class UserController {
         return serverResponse;
     }
 
+    /**
+     * 注册接口
+     * @param userInfo
+     * @return
+     */
     @RequestMapping(value = "register.do")
     public ServerResponse register(UserInfo userInfo) {
         return userService.register(userInfo);

@@ -63,7 +63,7 @@ public class CategoryManageController {
      * 修改节点
      */
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "/set_category_name")
     public ServerResponse set_category_name(HttpSession session,
                                        Integer categoryId,
                                        String categoryName){

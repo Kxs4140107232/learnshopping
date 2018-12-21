@@ -31,11 +31,9 @@
         #{cart.id}
       </foreach>
 
-
     </where>
 
   </delete>
-
 
 
   <insert id="insert" parameterType="com.neuedu.pojo.Cart">
@@ -82,7 +80,7 @@
 
   <select id="selectCartByUseridAndProductId" resultType="map" resultMap="BaseResultMap">
       select id, user_id, product_id, quantity, checked, create_time, update_time
-    from neuedu_cart WHERE user_id=#{userId} and product_id=3{productId}
+    from neuedu_cart WHERE user_id=#{userId} and product_id=#{productId}
   </select>
 
   <select id="selectCartByUserid" resultType="int" resultMap="BaseResultMap">

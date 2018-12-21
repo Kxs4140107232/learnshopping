@@ -27,9 +27,8 @@ public class OrderController {
 
         UserInfo userInfo=(UserInfo) session.getAttribute(Const.CURRENTUSER);
         if (userInfo==null){
-            return ServerResponse.createServerResponseByError();
+            return ServerResponse.createServerResponseByError("请登入");
         }
-
         return orderService.createOrder(userInfo.getId(),shoppingId);
     }
 

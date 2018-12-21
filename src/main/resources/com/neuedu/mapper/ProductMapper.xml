@@ -61,6 +61,7 @@
         detail = #{detail,jdbcType=LONGVARCHAR}
         where id = #{id,jdbcType=INTEGER}
     </update>
+
     <update id="updateProductKeySelective" parameterType="com.neuedu.pojo.Product">
 
         <if test="categoryId!=null">
@@ -87,15 +88,17 @@
         <if test="status!=null">
             status = #{status,jdbcType=INTEGER},
         </if>
+        update_time = now(),
         <if test="detail!=null">
             detail = #{detail,jdbcType=LONGVARCHAR}
         </if>
-        update_time = now(),
+
 
         where id = #{id,jdbcType=INTEGER}
-
-
     </update>
+
+
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         <!--
           WARNING - @mbg.generated
@@ -115,7 +118,7 @@
         create_time, update_time, detail
         from neuedu_product
     </select>
-    <select id="findProductByProductIdAndProductName" parameterType="map" resultMap="BasultResult">
+    <select id="findProductByProductIdAndProductName" parameterType="map" resultMap="BaseResultMap">
         select id, category_id, name, subtitle, main_image, sub_images, price, stock, status,
         create_time, update_time, detail
         from neuedu_product

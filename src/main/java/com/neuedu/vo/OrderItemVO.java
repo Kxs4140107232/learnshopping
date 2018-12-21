@@ -11,7 +11,7 @@ public class OrderItemVO  implements Serializable {
     private String productImage;
     private BigDecimal currentUnitPrice;
     private Integer quantity;
-    private BigDecimal toatlPrice;
+    private BigDecimal totalPrice;
     private String createTime;
 
     public Long getOrderNo() {
@@ -62,12 +62,12 @@ public class OrderItemVO  implements Serializable {
         this.quantity = quantity;
     }
 
-    public BigDecimal getToatlPrice() {
-        return toatlPrice;
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setToatlPrice(BigDecimal toatlPrice) {
-        this.toatlPrice = toatlPrice;
+    public void setTotalPrice(BigDecimal toatlPrice) {
+        this.totalPrice = toatlPrice;
     }
 
     public String getCreateTime() {
