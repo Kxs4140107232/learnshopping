@@ -273,6 +273,7 @@ create table neuedu_shopping(
         String msg;//封装错误信息
     }
 
+```
 ###类别模块
 ####1.功能介绍
         获取节点
@@ -289,8 +290,8 @@ create table neuedu_shopping(
         1.封装的内容（SeverResponse）里少一个构造方法导致泛型<T>的data与string类型的status不可转换
         2.控制层requestMapping里的地址重复，服务器报500
           “Caused by: java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'c”
-          
-          
+```          
+       
 ###商品模块
 ####1功能：分为前台和后台
 #####前台：
