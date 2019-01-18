@@ -293,6 +293,7 @@ create table neuedu_shopping(
 ```          
        
 ###商品模块
+```
 ####1功能：分为前台和后台
 #####前台：
         产品搜索
@@ -325,7 +326,9 @@ create table neuedu_shopping(
           返回String型：public Sring
           返回ServerResponse型：public ServerResponse
          (2)图片上传不了，未解决
+```
 ##遇到的问题
+```
 ###一、类别模块
     1.添加的类别可以重名
 ###二、用户模块
@@ -351,6 +354,7 @@ create table neuedu_shopping(
     1.目前整体逻辑混乱，没有orderNo返回值
 ###六、收货地址模块
     1.添加的地址只有id
+```
 ##回顾1.0
 ###问题
     1.图片上传云端文件夹权限不够
