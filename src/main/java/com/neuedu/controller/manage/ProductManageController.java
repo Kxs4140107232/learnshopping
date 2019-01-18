@@ -60,9 +60,6 @@ public class ProductManageController {
 
     /**
      * 查看商品详情
-     * @param session
-     * @param productId
-     * @return
      */
 
     @RequestMapping(value = "/detail.do")
@@ -82,9 +79,6 @@ public class ProductManageController {
 
     /**
      * 查看商品列表
-     * @param session
-     * @param productId
-     * @return
      */
 
     @RequestMapping(value = "/list.do")

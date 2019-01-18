@@ -35,12 +35,6 @@ public class ProductController {
 
         return productService.list_portal(categoryId,keyword,pageNum,pageSize,orderBy);
 
-
-
     }
-
-
-
-
 
 }

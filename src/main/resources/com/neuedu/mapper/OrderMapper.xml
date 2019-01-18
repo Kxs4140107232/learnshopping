@@ -47,10 +47,6 @@
   </insert>
 
 
-
-
-
-
   <update id="updateByPrimaryKey" parameterType="com.neuedu.pojo.Order">
     <!--
       WARNING - @mbg.generated
@@ -64,11 +60,10 @@
       status = #{status,jdbcType=INTEGER},
       shopping_id = #{shoppingId,jdbcType=INTEGER},
       postage = #{postage,jdbcType=INTEGER},
-      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      payment_time =  now(),
       send_time = #{sendTime,jdbcType=TIMESTAMP},
       close_time = #{closeTime,jdbcType=TIMESTAMP},
-      end_time = #{endTime,jdbcType=TIMESTAMP},
-
+      end_time = now(),
       update_time = now()
     where id = #{id,jdbcType=INTEGER}
   </update>

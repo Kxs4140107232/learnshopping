@@ -50,7 +50,7 @@
     values
       <foreach collection="list" item="orderItem" separator=",">
 
-        (#{orderItem.userId,jdbcType=INTEGER}, #{orderItem.orderNo,jdbcType=BIGINT}, #{userId,jdbcType=INTEGER},
+        ( #{orderItem.orderNo,jdbcType=BIGINT},#{orderItem.userId,jdbcType=INTEGER},
         #{orderItem.productId,jdbcType=INTEGER}, #{orderItem.productName,jdbcType=VARCHAR}, #{orderItem.productImage,jdbcType=VARCHAR},
         #{orderItem.currentUnitPrice,jdbcType=DECIMAL}, #{orderItem.quantity,jdbcType=INTEGER}, #{orderItem.totalPrice,jdbcType=DECIMAL},
         now(), now())

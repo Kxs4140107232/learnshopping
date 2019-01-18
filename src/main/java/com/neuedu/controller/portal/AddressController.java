@@ -26,7 +26,8 @@ public class AddressController {
      */
     @RequestMapping(value = "/add.do")
     public ServerResponse add(HttpSession session, Shopping shopping){
-
+        System.out.println(shopping.getReceiverName());
+        System.out.println(shopping.getReceiverAddress());
         UserInfo userInfo=(UserInfo)session.getAttribute(Const.CURRENTUSER);
         if (userInfo==null){
             return ServerResponse.createServerResponseByError("需要登入");
